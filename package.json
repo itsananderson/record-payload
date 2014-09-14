@@ -1,0 +1,14 @@
+{
+  "name": "record-payload",
+  "version": "0.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Will Anderson",
+  "license": "MIT",
+  "dependencies": {
+    "azure-storage": "^0.3.3"
+  }
+}
