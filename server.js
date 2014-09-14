@@ -16,11 +16,13 @@ blobService.createContainerIfNotExists(containerName, function(err, result, resp
         console.error(err);
     } else {
         http.createServer(function(req, res) {
-            var payload = JSON.stringify(req.headers, undefined, 2) + '\n\n';
+            var headers = req.headers;
+            var body = '';
             req.on('data', function(data) {
-                payload += data.toString('utf8');
+                body += data.toString('utf8');
             });
             req.on('end', function() {
+                var payload = JSON.stringify({ headers: headers, body: body}, undefined, 2);
                 blobService.createBlockBlobFromText(
                     containerName,
                     String(new Date().getTime()),
