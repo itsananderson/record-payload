@@ -26,7 +26,7 @@ blobService.createContainerIfNotExists(containerName, function(err, result, resp
                     containerName,
                     String(new Date().getTime()),
                     payload,
-                    { contentType: 'text/plain' },
+                    { contentType: 'application/json' },
                     function(error, result, response){
                         if(error){
                             console.log("Couldn't upload payload");
