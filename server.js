@@ -3,10 +3,9 @@ var http = require('http'),
 
 var account = process.env.RECORD_PAYLOAD_ACCOUNT;
 var key = process.env.RECORD_PAYLOAD_KEY;
+var containerName = process.env.RECORD_PAYLOAD_CONTAINER || 'payload-records';
 
 var blobService = storage.createBlobService(account, key);
-
-var containerName = 'payload-records';
 
 console.log(String(new Date().getTime()));
 
