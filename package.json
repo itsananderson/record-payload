@@ -9,6 +9,8 @@
   "author": "Will Anderson",
   "license": "MIT",
   "dependencies": {
-    "azure-storage": "^0.3.3"
+    "azure-storage": "^0.3.3",
+    "raw-body": "^1.3.0",
+    "media-typer": "^0.3.0"
   }
 }
