@@ -29,11 +29,11 @@ blobService.createContainerIfNotExists(containerName, function(err, result, resp
                     { contentType: 'text/plain' },
                     function(error, result, response){
                         if(error){
-                            console.log("Couldn't upload string");
+                            console.log("Couldn't upload payload");
                             console.error(error);
                             res.end(error);
                         } else {
-                            console.log('String uploaded successfully');
+                            console.log('Payload uploaded successfully');
                             res.end('success');
                         }
                     });
