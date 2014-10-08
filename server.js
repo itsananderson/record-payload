@@ -16,13 +16,19 @@ blobService.createContainerIfNotExists(containerName, function(err, result, resp
         console.error(err);
     } else {
         http.createServer(function(req, res) {
+
+            function send(body) {
+                res.setHeader('Content-Type', 'text/plain');
+                res.end(body);
+            }
+
             var headers = req.headers;
             rawBody(req, {
                 limit: maxBodySize,
                 encoding: req.headers['content-type'] ? typer.parse(req.headers['content-type']).parameters.charset : 'utf-8'
             }, function(err, body) {
                 if (err) {
-                    res.end(err.toString());
+                    send(err.toString());
                 }
 
                 var bodyStr = body.toString('utf8');
@@ -50,12 +56,10 @@ blobService.createContainerIfNotExists(containerName, function(err, result, resp
                         if(error){
                             console.log("Couldn't upload payload");
                             console.error(error);
-                            res.setHeader('Content-Type', 'text/plain');
-                            res.end(error);
+                            send(error);
                         } else {
                             console.log('Payload uploaded successfully');
-                            res.setHeader('Content-Type', 'text/plain');
-                            res.end('success');
+                            send('success');
                         }
                     });
             });
