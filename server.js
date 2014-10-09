@@ -37,6 +37,7 @@ blobService.createContainerIfNotExists(containerName, function(err, result, resp
                 try {
                     bodyObj = JSON.parse(bodyStr);
                 } catch (e) {
+                    console.error(e);
                     bodyObj = bodyStr;
                 }
 
